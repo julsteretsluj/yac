@@ -449,6 +449,131 @@ select:focus-visible {
   letter-spacing: -0.02em;
 }
 
+/* ── Upcoming editions ── */
+
+.upcoming-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.upcoming-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.upcoming-deck {
+  font-size: 1rem;
+  color: var(--ink-secondary);
+  max-width: 44ch;
+}
+
+.edition-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.edition-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--canvas);
+  transition: background 0.2s var(--ease);
+}
+
+.edition-card:hover {
+  background: var(--canvas-tint);
+}
+
+.edition-card--pink { border-top: 3px solid var(--pink); }
+.edition-card--blue { border-top: 3px solid var(--blue); }
+.edition-card--purple { border-top: 3px solid var(--purple); }
+.edition-card--yellow { border-top: 3px solid var(--yellow); }
+
+.edition-card--featured {
+  background: var(--canvas-tint);
+}
+
+.edition-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.edition-card time {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+}
+
+.edition-status {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.edition-status--open { color: var(--pink); }
+.edition-status--soon { color: var(--blue); }
+.edition-status--planned { color: var(--purple); }
+.edition-status--tba { color: var(--ink-tertiary); }
+
+.edition-theme {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.edition-tagline {
+  font-size: 0.9rem;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.edition-format {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+  margin-bottom: 20px;
+}
+
+.edition-cta {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  align-self: flex-start;
+  padding-bottom: 2px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.edition-cta:hover {
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
 /* ── 03 Theme ── */
 
 .theme-statement {
@@ -1188,6 +1313,7 @@ select:focus-visible {
 
   .hero-editorial,
   .conference-grid,
+  .edition-cards,
   .global-composition,
   .credits-layout,
   .cta-editorial,
@@ -1207,6 +1333,8 @@ select:focus-visible {
   .fact-strip div:nth-child(3) { border-right: none; }
   .fact-strip div:nth-child(4),
   .fact-strip div:nth-child(5) { border-top: 1px solid var(--rule); }
+
+  .edition-cards { grid-template-columns: 1fr 1fr; }
 
   .manifesto-index { grid-template-columns: 1fr; }
 
@@ -1264,6 +1392,8 @@ select:focus-visible {
   .fact-strip { grid-template-columns: 1fr 1fr; }
   .fact-strip div { border-right: none; border-bottom: 1px solid var(--rule); }
   .fact-strip div:nth-child(odd) { border-right: 1px solid var(--rule); }
+
+  .edition-cards { grid-template-columns: 1fr; }
 
   .outcomes-manifesto { grid-template-columns: 1fr 1fr; }
   .outcome-pillar { border-right: none; }

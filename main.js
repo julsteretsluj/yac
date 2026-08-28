@@ -22,6 +22,96 @@ if (header) {
   }, { passive: true });
 }
 
+// Upcoming conference editions (bi-monthly, third weekend)
+const upcomingConferences = [
+  {
+    start: '2026-09-26',
+    end: '2026-09-27',
+    dates: '26—27 Sep 2026',
+    theme: 'Human Rights',
+    tagline: 'Voices of the West & East — youth stances on global circumstances',
+    status: 'open',
+    statusLabel: 'Registration open',
+    accent: 'pink',
+    cta: { href: '#register', label: 'Register ↗' },
+  },
+  {
+    start: '2026-11-21',
+    end: '2026-11-22',
+    dates: '21—22 Nov 2026',
+    theme: 'Climate Action',
+    tagline: 'Youth-led solutions for a changing planet',
+    status: 'soon',
+    statusLabel: 'Save the date',
+    accent: 'blue',
+    cta: { href: '#register', label: 'Register interest →' },
+  },
+  {
+    start: '2027-01-16',
+    end: '2027-01-17',
+    dates: '16—17 Jan 2027',
+    theme: 'Education & Opportunity',
+    tagline: 'Rethinking access, equity, and the future of learning',
+    status: 'planned',
+    statusLabel: 'Theme confirmed',
+    accent: 'purple',
+    cta: { href: '#register', label: 'Register interest →' },
+  },
+  {
+    start: '2027-03-20',
+    end: '2027-03-21',
+    dates: '20—21 Mar 2027',
+    theme: 'Democracy & Civic Life',
+    tagline: 'Young people shaping institutions and public discourse',
+    status: 'planned',
+    statusLabel: 'Theme confirmed',
+    accent: 'yellow',
+    cta: { href: '#register', label: 'Register interest →' },
+  },
+  {
+    start: '2027-05-15',
+    end: '2027-05-16',
+    dates: '15—16 May 2027',
+    theme: 'Global Health & Wellbeing',
+    tagline: 'SDGs, mental health, and what it means to thrive',
+    status: 'tba',
+    statusLabel: 'Details forthcoming',
+    accent: 'pink',
+    cta: { href: '#register', label: 'Register interest →' },
+  },
+  {
+    start: '2027-07-17',
+    end: '2027-07-18',
+    dates: '17—18 Jul 2027',
+    theme: 'Digital Futures',
+    tagline: 'Technology, media, and ethics in a connected world',
+    status: 'tba',
+    statusLabel: 'Details forthcoming',
+    accent: 'blue',
+    cta: { href: '#register', label: 'Register interest →' },
+  },
+];
+
+function renderEditionCards() {
+  const container = document.getElementById('edition-cards');
+  if (!container) return;
+
+  container.innerHTML = upcomingConferences.map((edition) => `
+    <article class="edition-card edition-card--${edition.accent}${edition.status === 'open' ? ' edition-card--featured' : ''}" role="listitem">
+      <div class="edition-card-top">
+        <time datetime="${edition.start}/${edition.end}">${edition.dates}</time>
+        <span class="edition-status edition-status--${edition.status}">${edition.statusLabel}</span>
+      </div>
+      <h3 class="edition-theme">${edition.theme}</h3>
+      <p class="edition-tagline">${edition.tagline}</p>
+      <p class="edition-format">Virtual · Zoom / Google Meet</p>
+      <a href="${edition.cta.href}" class="edition-cta">${edition.cta.label}</a>
+    </article>
+  `).join('');
+}
+
+renderEditionCards();
+
 // Program data
 const schedules = {
   gmt7: [
