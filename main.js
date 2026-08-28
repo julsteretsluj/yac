@@ -95,6 +95,35 @@ const dayPrograms = {
 let currentDay = 1;
 let currentTz = 'gmt7';
 
+function parseClock(timeStr) {
+  const [h, m] = timeStr.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function parseOffset(offsetStr) {
+  const [h, m] = offsetStr.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function formatClock(totalMinutes) {
+  const normalized = ((totalMinutes % (24 * 60)) + (24 * 60)) % (24 * 60);
+  const h = Math.floor(normalized / 60);
+  const m = normalized % 60;
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+}
+
+/** Session 1 start time for the selected day in the chosen timezone */
+function getSessionStart(tz, day) {
+  const sessions = schedules[tz];
+  if (!sessions) return '00:00';
+  const idx = day === 1 ? 0 : 2;
+  return sessions[idx].time.split('–')[0].trim();
+}
+
+function offsetToClock(sessionStart, offset) {
+  return formatClock(parseClock(sessionStart) + parseOffset(offset));
+}
+
 function renderSchedule() {
   const container = document.getElementById('tz-schedule');
   const title = document.getElementById('session-block-title');
@@ -116,13 +145,27 @@ function renderSchedule() {
 function renderTimetable() {
   const tbody = document.getElementById('timetable-body');
   if (!tbody) return;
-  tbody.innerHTML = dayPrograms[currentDay].map(([time, segment, desc]) => `
+
+  const sessionStart = getSessionStart(currentTz, currentDay);
+  const label = tzLabels[currentTz];
+
+  tbody.innerHTML = dayPrograms[currentDay].map(([offset, segment, desc]) => {
+    const clock = offsetToClock(sessionStart, offset);
+    return `
     <tr>
-      <td>${time}</td>
+      <td><time datetime="${clock}">${clock}</time></td>
       <td>${segment}</td>
       <td>${desc}</td>
     </tr>
-  `).join('');
+  `;
+  }).join('');
+
+  const caption = document.querySelector('.timetable caption');
+  const timetableLabel = document.getElementById('timetable-label');
+  const labelText = `Day ${currentDay} program · ${label} · session starts ${sessionStart}`;
+
+  if (caption) caption.textContent = labelText;
+  if (timetableLabel) timetableLabel.textContent = labelText;
 }
 
 document.querySelectorAll('.day-tab').forEach((tab) => {
@@ -143,6 +186,7 @@ if (tzSelect) {
   tzSelect.addEventListener('change', () => {
     currentTz = tzSelect.value;
     renderSchedule();
+    renderTimetable();
   });
 }
 
