@@ -1,0 +1,9 @@
+{
+  "name": "youth-action-conference",
+  "version": "1.0.0",
+  "description": "Youth Action Conference — bi-monthly youth summit by IOY Ambassadors",
+  "scripts": {
+    "dev": "npx --yes serve . -p 3000",
+    "start": "npx --yes serve . -p 3000"
+  }
+}
