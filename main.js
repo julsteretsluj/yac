@@ -15,6 +15,13 @@ if (toggle) {
   });
 }
 
+// Compact header on scroll
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('is-compact', window.scrollY > 80);
+  }, { passive: true });
+}
+
 // Program data
 const schedules = {
   gmt7: [
