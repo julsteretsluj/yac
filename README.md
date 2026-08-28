@@ -1,6 +1,6 @@
 # Youth Action Conference
 
-A landing page for the Youth Action Conference (YAC) — a bi-monthly youth summit organized by IOY Ambassadors.
+A landing page for the Youth Action Conference (YAC) — a bi-monthly virtual youth summit organized by IOY Ambassadors.
 
 ## Quick start
 
@@ -9,6 +9,14 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Deploy (Vercel)
+
+```bash
+npx vercel --prod
+```
+
+Live site: connect the GitHub repo at [vercel.com](https://vercel.com) for automatic deploys on push.
 
 ## Structure
 
