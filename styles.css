@@ -1175,6 +1175,48 @@ select:focus-visible {
   line-height: 1.6;
 }
 
+.register-embed {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.register-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 1400px;
+  border: 0;
+}
+
+.register-embed-note {
+  padding: 16px 20px 0;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+.register-embed-note a {
+  color: var(--blue);
+}
+
+.register-embed-link {
+  display: inline-block;
+  margin: 12px 20px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.register-embed-link:hover {
+  color: var(--pink);
+  border-bottom-color: var(--pink);
+}
+
 .register-form {
   display: flex;
   flex-direction: column;

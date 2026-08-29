@@ -282,20 +282,3 @@ if (tzSelect) {
 
 renderSchedule();
 renderTimetable();
-
-// Registration form
-const form = document.querySelector('.register-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const original = btn.innerHTML;
-    btn.innerHTML = 'Registered — check your email';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.disabled = false;
-      form.reset();
-    }, 3000);
-  });
-}
