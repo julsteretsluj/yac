@@ -112,47 +112,44 @@ function renderEditionCards() {
 
 renderEditionCards();
 
-// Program data
-const schedules = {
-  gmt7: [
-    { time: '14:00 – 21:00', title: 'Day 1 · Session 1', detail: 'Sep 26 · Asia, Middle East & Africa', hosts: 'Jules Kitto-Astrop & Dominique Chloe Gwyneth Djamal', upcoming: true },
-    { time: '21:00 – 02:00', title: 'Day 1 · Session 2', detail: 'Sep 26–27 · Americas & West Africa', hosts: 'Asomugha Zingisa' },
-    { time: '21:00 – 02:00', title: 'Day 2 · Session 1', detail: 'Sep 27–28 · Americas & West Africa', hosts: 'Jules Kitto-Astrop' },
-    { time: '02:00 – 09:00', title: 'Day 2 · Session 2', detail: 'Sep 28 · Asia & Pacific', hosts: 'Dominique Chloe Gwyneth Djamal' },
-  ],
-  gmt1: [
-    { time: '08:00 – 14:00', title: 'Day 1 · Session 1', detail: 'Sep 26 · Asia, Middle East & Africa', hosts: 'Jules Kitto-Astrop & Dominique Chloe Gwyneth Djamal', upcoming: true },
-    { time: '14:00 – 20:00', title: 'Day 1 · Session 2', detail: 'Sep 26 · Americas & West Africa', hosts: 'Asomugha Zingisa' },
-    { time: '14:00 – 20:00', title: 'Day 2 · Session 1', detail: 'Sep 27 · Americas & West Africa', hosts: 'Jules Kitto-Astrop' },
-    { time: '20:00 – 02:00', title: 'Day 2 · Session 2', detail: 'Sep 27–28 · Asia & Pacific', hosts: 'Dominique Chloe Gwyneth Djamal' },
-  ],
-  gmte4: [
-    { time: '03:00 – 09:00', title: 'Day 1 · Session 1', detail: 'Sep 26 · Asia, Middle East & Africa', hosts: 'Jules Kitto-Astrop & Dominique Chloe Gwyneth Djamal', upcoming: true },
-    { time: '09:00 – 15:00', title: 'Day 1 · Session 2', detail: 'Sep 26 · Americas & West Africa', hosts: 'Asomugha Zingisa' },
-    { time: '09:00 – 15:00', title: 'Day 2 · Session 1', detail: 'Sep 27 · Americas & West Africa', hosts: 'Jules Kitto-Astrop' },
-    { time: '15:00 – 21:00', title: 'Day 2 · Session 2', detail: 'Sep 27 · Asia & Pacific', hosts: 'Dominique Chloe Gwyneth Djamal' },
-  ],
-  gmt530: [
-    { time: '12:30 – 18:30', title: 'Day 1 · Session 1', detail: 'Sep 26 · Asia, Middle East & Africa', hosts: 'Jules Kitto-Astrop & Dominique Chloe Gwyneth Djamal', upcoming: true },
-    { time: '18:30 – 00:30', title: 'Day 1 · Session 2', detail: 'Sep 26–27 · Americas & West Africa', hosts: 'Asomugha Zingisa' },
-    { time: '18:30 – 00:30', title: 'Day 2 · Session 1', detail: 'Sep 27–28 · Americas & West Africa', hosts: 'Jules Kitto-Astrop' },
-    { time: '00:30 – 06:30', title: 'Day 2 · Session 2', detail: 'Sep 28 · Asia & Pacific', hosts: 'Dominique Chloe Gwyneth Djamal' },
-  ],
-  gmt0: [
-    { time: '07:00 – 13:00', title: 'Day 1 · Session 1', detail: 'Sep 26 · Asia, Middle East & Africa', hosts: 'Jules Kitto-Astrop & Dominique Chloe Gwyneth Djamal', upcoming: true },
-    { time: '13:00 – 19:00', title: 'Day 1 · Session 2', detail: 'Sep 26 · Americas & West Africa', hosts: 'Asomugha Zingisa' },
-    { time: '13:00 – 19:00', title: 'Day 2 · Session 1', detail: 'Sep 27 · Americas & West Africa', hosts: 'Jules Kitto-Astrop' },
-    { time: '19:00 – 01:00', title: 'Day 2 · Session 2', detail: 'Sep 27–28 · Asia & Pacific', hosts: 'Dominique Chloe Gwyneth Djamal' },
-  ],
-};
+// Program — canonical schedule in GMT+7, converted to any UTC offset
+const REFERENCE_TZ_OFFSET = 420; // GMT+7
 
-const tzLabels = {
-  gmt7: 'GMT+7',
-  gmt1: 'GMT+1',
-  gmte4: 'GMT−4',
-  gmt530: 'GMT+5:30',
-  gmt0: 'GMT+0',
-};
+const sessionBlocks = [
+  {
+    conferenceDay: 1,
+    title: 'Day 1 · Session 1',
+    detail: 'Sep 26 · Asia, Middle East & Africa',
+    hosts: 'Jules Kitto-Astrop & Dominique Chloe Gwyneth Djamal',
+    upcoming: true,
+    start: { date: 26, hour: 14, minute: 0 },
+    end: { date: 26, hour: 21, minute: 0 },
+  },
+  {
+    conferenceDay: 1,
+    title: 'Day 1 · Session 2',
+    detail: 'Sep 26–27 · Americas & West Africa',
+    hosts: 'Asomugha Zingisa',
+    start: { date: 26, hour: 21, minute: 0 },
+    end: { date: 27, hour: 2, minute: 0 },
+  },
+  {
+    conferenceDay: 2,
+    title: 'Day 2 · Session 1',
+    detail: 'Sep 27–28 · Americas & West Africa',
+    hosts: 'Jules Kitto-Astrop',
+    start: { date: 27, hour: 21, minute: 0 },
+    end: { date: 28, hour: 2, minute: 0 },
+  },
+  {
+    conferenceDay: 2,
+    title: 'Day 2 · Session 2',
+    detail: 'Sep 28 · Asia & Pacific',
+    hosts: 'Dominique Chloe Gwyneth Djamal',
+    start: { date: 28, hour: 2, minute: 0 },
+    end: { date: 28, hour: 9, minute: 0 },
+  },
+];
 
 const dayPrograms = {
   1: [
@@ -182,8 +179,49 @@ const dayPrograms = {
   ],
 };
 
+const timezones = [
+  { offset: -720, label: 'GMT−12 · Baker Island' },
+  { offset: -660, label: 'GMT−11 · American Samoa' },
+  { offset: -600, label: 'GMT−10 · Hawaii' },
+  { offset: -570, label: 'GMT−9:30 · Marquesas Islands' },
+  { offset: -540, label: 'GMT−9 · Alaska' },
+  { offset: -480, label: 'GMT−8 · US Pacific' },
+  { offset: -420, label: 'GMT−7 · US Mountain' },
+  { offset: -360, label: 'GMT−6 · US Central' },
+  { offset: -300, label: 'GMT−5 · US Eastern' },
+  { offset: -240, label: 'GMT−4 · Atlantic / Caribbean' },
+  { offset: -210, label: 'GMT−3:30 · Newfoundland' },
+  { offset: -180, label: 'GMT−3 · Brazil / Argentina' },
+  { offset: -120, label: 'GMT−2 · Mid-Atlantic' },
+  { offset: -60, label: 'GMT−1 · Azores' },
+  { offset: 0, label: 'GMT+0 · UTC / London' },
+  { offset: 60, label: 'GMT+1 · West Africa / CET' },
+  { offset: 120, label: 'GMT+2 · Central Africa / EET' },
+  { offset: 180, label: 'GMT+3 · East Africa / Moscow' },
+  { offset: 210, label: 'GMT+3:30 · Iran' },
+  { offset: 240, label: 'GMT+4 · Gulf' },
+  { offset: 270, label: 'GMT+4:30 · Afghanistan' },
+  { offset: 300, label: 'GMT+5 · Pakistan' },
+  { offset: 330, label: 'GMT+5:30 · India' },
+  { offset: 345, label: 'GMT+5:45 · Nepal' },
+  { offset: 360, label: 'GMT+6 · Bangladesh' },
+  { offset: 390, label: 'GMT+6:30 · Myanmar' },
+  { offset: 420, label: 'GMT+7 · Southeast Asia' },
+  { offset: 480, label: 'GMT+8 · China / Singapore' },
+  { offset: 525, label: 'GMT+8:45 · Western Australia' },
+  { offset: 540, label: 'GMT+9 · Japan / Korea' },
+  { offset: 570, label: 'GMT+9:30 · Central Australia' },
+  { offset: 600, label: 'GMT+10 · Eastern Australia' },
+  { offset: 630, label: 'GMT+10:30 · Lord Howe Island' },
+  { offset: 660, label: 'GMT+11 · Solomon Islands' },
+  { offset: 720, label: 'GMT+12 · New Zealand / Fiji' },
+  { offset: 765, label: 'GMT+12:45 · Chatham Islands' },
+  { offset: 780, label: 'GMT+13 · Tonga' },
+  { offset: 840, label: 'GMT+14 · Kiribati' },
+];
+
 let currentDay = 1;
-let currentTz = 'gmt7';
+let currentTzOffset = REFERENCE_TZ_OFFSET;
 
 function parseClock(timeStr) {
   const [h, m] = timeStr.split(':').map(Number);
@@ -202,31 +240,96 @@ function formatClock(totalMinutes) {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
 }
 
-/** Session 1 start time for the selected day in the chosen timezone */
-function getSessionStart(tz, day) {
-  const sessions = schedules[tz];
-  if (!sessions) return '00:00';
-  const idx = day === 1 ? 0 : 2;
-  return sessions[idx].time.split('–')[0].trim();
+function formatOffsetLabel(offsetMinutes) {
+  const sign = offsetMinutes >= 0 ? '+' : '−';
+  const abs = Math.abs(offsetMinutes);
+  const h = Math.floor(abs / 60);
+  const m = abs % 60;
+  if (m === 0) return `GMT${sign}${h}`;
+  return `GMT${sign}${h}:${String(m).padStart(2, '0')}`;
+}
+
+function toUtcMinutes(date, hour, minute, sourceOffset = REFERENCE_TZ_OFFSET) {
+  const dayOffset = (date - 26) * 24 * 60;
+  return dayOffset + hour * 60 + minute - sourceOffset;
+}
+
+function utcToLocalClock(utcMinutes, targetOffset) {
+  return formatClock(utcMinutes + targetOffset);
+}
+
+function formatSessionRange(startUtc, endUtc, targetOffset) {
+  return `${utcToLocalClock(startUtc, targetOffset)} – ${utcToLocalClock(endUtc, targetOffset)}`;
+}
+
+function getComputedSessions(offsetMinutes) {
+  return sessionBlocks.map((block) => ({
+    ...block,
+    time: formatSessionRange(
+      toUtcMinutes(block.start.date, block.start.hour, block.start.minute),
+      toUtcMinutes(block.end.date, block.end.hour, block.end.minute),
+      offsetMinutes,
+    ),
+  }));
+}
+
+function getSessionStart(offsetMinutes, day) {
+  const sessions = getComputedSessions(offsetMinutes);
+  const match = sessions.find((session) => session.conferenceDay === day && /Session 1/.test(session.title));
+  if (!match) return '00:00';
+  return match.time.split('–')[0].trim();
 }
 
 function offsetToClock(sessionStart, offset) {
   return formatClock(parseClock(sessionStart) + parseOffset(offset));
 }
 
+function renderTimezoneOptions() {
+  const tzSelect = document.getElementById('tz-select');
+  if (!tzSelect) return;
+
+  const detectedOffset = -new Date().getTimezoneOffset();
+  const hasDetected = timezones.some((tz) => tz.offset === detectedOffset);
+
+  tzSelect.innerHTML = timezones.map((tz) => {
+    const isDetected = tz.offset === detectedOffset;
+    const suffix = isDetected ? ' · your timezone' : '';
+    return `<option value="${tz.offset}"${isDetected ? ' selected' : ''}>${tz.label}${suffix}</option>`;
+  }).join('');
+
+  if (!hasDetected) {
+    const detectedLabel = `${formatOffsetLabel(detectedOffset)} · your timezone`;
+    const detectedOption = document.createElement('option');
+    detectedOption.value = String(detectedOffset);
+    detectedOption.textContent = detectedLabel;
+    detectedOption.selected = true;
+    tzSelect.insertBefore(detectedOption, tzSelect.firstChild);
+    currentTzOffset = detectedOffset;
+  } else {
+    currentTzOffset = detectedOffset;
+  }
+
+  if (!tzSelect.value) {
+    const fallback = timezones.find((tz) => tz.offset === REFERENCE_TZ_OFFSET);
+    tzSelect.value = String(fallback?.offset ?? REFERENCE_TZ_OFFSET);
+    currentTzOffset = Number(tzSelect.value);
+  }
+}
+
 function renderSchedule() {
   const container = document.getElementById('tz-schedule');
   const title = document.getElementById('session-block-title');
-  if (!container || !schedules[currentTz]) return;
+  const sessions = getComputedSessions(currentTzOffset);
+  if (!container) return;
 
-  if (title) title.textContent = `Session times in ${tzLabels[currentTz]}`;
+  if (title) title.textContent = `Session times in ${formatOffsetLabel(currentTzOffset)}`;
 
-  container.innerHTML = schedules[currentTz].map((s) => `
-    <li class="${s.upcoming ? 'upcoming' : ''}">
-      <time>${s.time}</time>
+  container.innerHTML = sessions.map((session) => `
+    <li class="${session.upcoming ? 'upcoming' : ''}">
+      <time>${session.time}</time>
       <div>
-        <h4>${s.title}</h4>
-        <p>${s.detail} · Hosts: ${s.hosts}</p>
+        <h4>${session.title}</h4>
+        <p>${session.detail} · Hosts: ${session.hosts}</p>
       </div>
     </li>
   `).join('');
@@ -236,8 +339,8 @@ function renderTimetable() {
   const tbody = document.getElementById('timetable-body');
   if (!tbody) return;
 
-  const sessionStart = getSessionStart(currentTz, currentDay);
-  const label = tzLabels[currentTz];
+  const sessionStart = getSessionStart(currentTzOffset, currentDay);
+  const label = formatOffsetLabel(currentTzOffset);
 
   tbody.innerHTML = dayPrograms[currentDay].map(([offset, segment, desc]) => {
     const clock = offsetToClock(sessionStart, offset);
@@ -273,8 +376,9 @@ document.querySelectorAll('.day-tab').forEach((tab) => {
 
 const tzSelect = document.getElementById('tz-select');
 if (tzSelect) {
+  renderTimezoneOptions();
   tzSelect.addEventListener('change', () => {
-    currentTz = tzSelect.value;
+    currentTzOffset = Number(tzSelect.value);
     renderSchedule();
     renderTimetable();
   });

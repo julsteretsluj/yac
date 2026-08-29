@@ -767,7 +767,17 @@ select:focus-visible {
   margin-bottom: 8px;
 }
 
+.tz-hint {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  max-width: 36ch;
+  line-height: 1.45;
+}
+
 .tz-select {
+  min-width: min(100%, 320px);
+  max-width: 100%;
   padding: 10px 36px 10px 14px;
   font-family: var(--font-body);
   font-size: 0.875rem;
@@ -1144,8 +1154,8 @@ select:focus-visible {
 
 .cta-editorial {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px 80px;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
+  gap: 48px 64px;
   align-items: start;
 }
 
@@ -1185,6 +1195,7 @@ select:focus-visible {
 .register-embed iframe {
   display: block;
   width: 100%;
+  height: 1400px;
   min-height: 1400px;
   border: 0;
 }
