@@ -47,9 +47,9 @@ const upcomingConferences = [
     cta: { href: '#upcoming', label: 'Save the date →' },
   },
   {
-    start: '2027-01-16',
-    end: '2027-01-17',
-    dates: '16—17 Jan 2027',
+    start: '2027-01',
+    end: '2027-01',
+    dates: 'January 2027',
     theme: 'Education & Opportunity',
     tagline: 'Rethinking access, equity, and the future of learning',
     status: 'planned',
