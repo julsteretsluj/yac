@@ -97,9 +97,6 @@ select:focus-visible {
 /* ── Chapter markers ── */
 
 .chapter-mark {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 0 32px;
   margin-bottom: 48px;
   padding-bottom: 32px;
   border-bottom: 1px solid var(--rule);
@@ -111,20 +108,8 @@ select:focus-visible {
 }
 
 .chapter-mark--light { border-bottom-color: rgba(255,255,255,0.15); }
-.chapter-mark--light .chapter-num { color: var(--yellow); }
 .chapter-mark--light .chapter-title,
 .chapter-mark--light .chapter-deck { color: #fff; }
-
-.chapter-num {
-  font-family: var(--font-display);
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--pink);
-  letter-spacing: 0.04em;
-  padding-top: 6px;
-}
-
-.chapter-num--light { color: rgba(255,255,255,0.45); }
 
 .chapter-title {
   font-family: var(--font-display);
@@ -1165,7 +1150,7 @@ select:focus-visible {
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: #fff;
-  margin: 12px 0 24px;
+  margin: 0 0 24px;
 }
 
 .cta-date {
@@ -1410,6 +1395,4 @@ select:focus-visible {
   .tz-select { width: 100%; }
 
   .credits-main { flex-direction: column; }
-
-  .chapter-mark { grid-template-columns: 40px 1fr; gap: 0 20px; }
 }

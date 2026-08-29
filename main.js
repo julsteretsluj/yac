@@ -29,7 +29,7 @@ const upcomingConferences = [
     end: '2026-09-27',
     dates: '26—27 Sep 2026',
     theme: 'Human Rights',
-    tagline: 'Voices of the West & East — youth stances on global circumstances',
+    tagline: 'Youth stances on human rights, from the classroom to the global stage',
     status: 'open',
     statusLabel: 'Registration open',
     accent: 'pink',
@@ -44,7 +44,7 @@ const upcomingConferences = [
     status: 'soon',
     statusLabel: 'Save the date',
     accent: 'blue',
-    cta: { href: '#register', label: 'Register interest →' },
+    cta: { href: '#upcoming', label: 'Save the date →' },
   },
   {
     start: '2027-01-16',
@@ -55,7 +55,7 @@ const upcomingConferences = [
     status: 'planned',
     statusLabel: 'Theme confirmed',
     accent: 'purple',
-    cta: { href: '#register', label: 'Register interest →' },
+    cta: { href: '#upcoming', label: 'Save the date →' },
   },
   {
     start: '2027-03-20',
@@ -66,7 +66,7 @@ const upcomingConferences = [
     status: 'planned',
     statusLabel: 'Theme confirmed',
     accent: 'yellow',
-    cta: { href: '#register', label: 'Register interest →' },
+    cta: { href: '#upcoming', label: 'Save the date →' },
   },
   {
     start: '2027-05-15',
@@ -77,7 +77,7 @@ const upcomingConferences = [
     status: 'tba',
     statusLabel: 'Details forthcoming',
     accent: 'pink',
-    cta: { href: '#register', label: 'Register interest →' },
+    cta: { href: '#upcoming', label: 'Details forthcoming' },
   },
   {
     start: '2027-07-17',
@@ -88,7 +88,7 @@ const upcomingConferences = [
     status: 'tba',
     statusLabel: 'Details forthcoming',
     accent: 'blue',
-    cta: { href: '#register', label: 'Register interest →' },
+    cta: { href: '#upcoming', label: 'Details forthcoming' },
   },
 ];
 
