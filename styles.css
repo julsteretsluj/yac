@@ -199,6 +199,11 @@ select:focus-visible {
 
 .nav-list a:hover { color: var(--ink); }
 
+.nav-list a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .nav-register {
   color: var(--pink) !important;
   font-weight: 600 !important;
@@ -1396,4 +1401,214 @@ select:focus-visible {
   .tz-select { width: 100%; }
 
   .credits-main { flex-direction: column; }
+}
+
+/* ── Guidelines page ── */
+
+.page-guidelines .guidelines-hero {
+  padding-top: clamp(48px, 8vw, 80px);
+}
+
+.guidelines-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.guidelines-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 28px;
+  max-width: 36ch;
+}
+
+.guidelines-intro,
+.guidelines-lead,
+.guidelines-prose p,
+.guidelines-section-lead {
+  color: var(--ink-secondary);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+.guidelines-intro { margin-bottom: 20px; }
+.guidelines-lead { margin-bottom: 48px; color: var(--ink); }
+
+.guidelines-download {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 28px 32px;
+  background: var(--canvas-tint);
+  border: 1px solid var(--rule);
+}
+
+.guidelines-download-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.guidelines-download-copy p {
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+  max-width: 42ch;
+}
+
+.guidelines-commitments {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.guidelines-commitment {
+  padding: 24px 24px 24px 28px;
+  background: var(--canvas);
+  border: 1px solid var(--rule);
+  border-left-width: 4px;
+}
+
+.guidelines-commitment--pink { border-left-color: var(--pink); }
+.guidelines-commitment--purple { border-left-color: var(--purple); }
+.guidelines-commitment--blue { border-left-color: var(--blue); }
+.guidelines-commitment--yellow { border-left-color: var(--yellow); }
+
+.guidelines-commitment h3 {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.guidelines-commitment p {
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.guidelines-prose p + p { margin-top: 16px; }
+
+.guidelines-section-lead { margin-bottom: 16px; }
+.guidelines-section-lead + .guidelines-section-lead { margin-top: 24px; }
+
+.guidelines-checklist {
+  list-style: none;
+  max-width: 62ch;
+}
+
+.guidelines-checklist li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 14px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.guidelines-checklist li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-size: 0.75rem;
+  top: 0.35em;
+}
+
+.guidelines-callout {
+  padding: 40px;
+  border: 1px solid var(--rule);
+  background: var(--canvas);
+}
+
+.guidelines-callout--purple {
+  border-left: 4px solid var(--purple);
+}
+
+.guidelines-callout p {
+  color: var(--ink-secondary);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+.guidelines-callout p + p { margin-top: 16px; }
+
+.guidelines-escalation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  margin: 8px 0 24px;
+  padding: 0;
+}
+
+.guidelines-escalation li {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border: 1px solid var(--rule);
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+.guidelines-escalation li:not(:last-child)::after {
+  content: '→';
+  margin-left: 12px;
+  color: var(--ink-tertiary);
+  font-weight: 400;
+}
+
+.guidelines-closing {
+  text-align: left;
+}
+
+.guidelines-closing-inner {
+  max-width: 52ch;
+}
+
+.guidelines-closing-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.guidelines-closing p {
+  color: rgba(255,255,255,0.75);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.guidelines-closing-tag {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--yellow) !important;
+  margin: 24px 0 32px !important;
+}
+
+@media (max-width: 768px) {
+  .guidelines-download {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .guidelines-commitments { grid-template-columns: 1fr; }
+
+  .guidelines-escalation li:not(:last-child)::after { display: none; }
 }
