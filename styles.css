@@ -301,10 +301,11 @@ select:focus-visible {
 
 .hero-line { display: block; }
 .hero-line--pink { color: var(--pink); }
+.hero-line--purple { color: var(--purple); }
+.hero-line--blue { color: var(--blue); }
 .hero-line--sub {
   font-size: 0.55em;
   font-weight: 700;
-  color: var(--purple);
   letter-spacing: -0.02em;
 }
 
