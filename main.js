@@ -221,6 +221,7 @@ const timezones = [
 ];
 
 let currentDay = 1;
+let currentSessionIndex = 0;
 let currentTzOffset = REFERENCE_TZ_OFFSET;
 
 function parseClock(timeStr) {
@@ -273,11 +274,32 @@ function getComputedSessions(offsetMinutes) {
   }));
 }
 
-function getSessionStart(offsetMinutes, day) {
+function getSelectedSession(offsetMinutes = currentTzOffset) {
   const sessions = getComputedSessions(offsetMinutes);
-  const match = sessions.find((session) => session.conferenceDay === day && /Session 1/.test(session.title));
-  if (!match) return '00:00';
-  return match.time.split('–')[0].trim();
+  return sessions[currentSessionIndex] ?? sessions[0];
+}
+
+function syncDayTabs(day) {
+  document.querySelectorAll('.day-tab').forEach((tab) => {
+    const isActive = Number(tab.dataset.day) === day;
+    tab.classList.toggle('active', isActive);
+    tab.setAttribute('aria-selected', String(isActive));
+  });
+}
+
+function selectSession(sessionIndex, { scrollToTimetable = true } = {}) {
+  const sessions = getComputedSessions(currentTzOffset);
+  if (!sessions[sessionIndex]) return;
+
+  currentSessionIndex = sessionIndex;
+  currentDay = sessions[sessionIndex].conferenceDay;
+  syncDayTabs(currentDay);
+  renderSchedule();
+  renderTimetable();
+
+  if (scrollToTimetable) {
+    document.getElementById('program-timetable')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 }
 
 function offsetToClock(sessionStart, offset) {
@@ -324,23 +346,39 @@ function renderSchedule() {
 
   if (title) title.textContent = `Session times in ${formatOffsetLabel(currentTzOffset)}`;
 
-  container.innerHTML = sessions.map((session) => `
-    <li class="${session.upcoming ? 'upcoming' : ''}">
-      <time>${session.time}</time>
-      <div>
-        <h4>${session.title}</h4>
-        <p>${session.detail} · Hosts: ${session.hosts}</p>
-      </div>
+  container.innerHTML = sessions.map((session, index) => `
+    <li role="listitem">
+      <button
+        type="button"
+        class="session-item${index === currentSessionIndex ? ' session-item--active' : ''}"
+        data-session-index="${index}"
+        aria-pressed="${index === currentSessionIndex}"
+      >
+        <time datetime="${session.time.replace(' – ', '/')}">${session.time}</time>
+        <span class="session-item-body">
+          <span class="session-item-title">${session.title}</span>
+          <span class="session-item-detail">${session.detail} · Hosts: ${session.hosts}</span>
+        </span>
+      </button>
     </li>
   `).join('');
+
+  container.querySelectorAll('.session-item').forEach((button) => {
+    button.addEventListener('click', () => {
+      selectSession(Number(button.dataset.sessionIndex));
+    });
+  });
 }
 
 function renderTimetable() {
   const tbody = document.getElementById('timetable-body');
   if (!tbody) return;
 
-  const sessionStart = getSessionStart(currentTzOffset, currentDay);
+  const session = getSelectedSession();
+  const sessionStart = session.time.split('–')[0].trim();
   const label = formatOffsetLabel(currentTzOffset);
+  currentDay = session.conferenceDay;
+  syncDayTabs(currentDay);
 
   tbody.innerHTML = dayPrograms[currentDay].map(([offset, segment, desc]) => {
     const clock = offsetToClock(sessionStart, offset);
@@ -355,7 +393,7 @@ function renderTimetable() {
 
   const caption = document.querySelector('.timetable caption');
   const timetableLabel = document.getElementById('timetable-label');
-  const labelText = `Day ${currentDay} program · ${label} · session starts ${sessionStart}`;
+  const labelText = `${session.title} · ${label} · starts ${sessionStart}`;
 
   if (caption) caption.textContent = labelText;
   if (timetableLabel) timetableLabel.textContent = labelText;
@@ -363,14 +401,9 @@ function renderTimetable() {
 
 document.querySelectorAll('.day-tab').forEach((tab) => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.day-tab').forEach((t) => {
-      t.classList.remove('active');
-      t.setAttribute('aria-selected', 'false');
-    });
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected', 'true');
-    currentDay = Number(tab.dataset.day);
-    renderTimetable();
+    const day = Number(tab.dataset.day);
+    const sessionIndex = sessionBlocks.findIndex((block) => block.conferenceDay === day);
+    selectSession(sessionIndex >= 0 ? sessionIndex : 0, { scrollToTimetable: false });
   });
 });
 

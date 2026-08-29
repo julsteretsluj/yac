@@ -799,6 +799,12 @@ select:focus-visible {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--yellow);
+  margin-bottom: 8px;
+}
+
+.session-block-hint {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.5);
   margin-bottom: 16px;
 }
 
@@ -808,14 +814,35 @@ select:focus-visible {
 }
 
 .session-list li {
-  display: grid;
-  grid-template-columns: 148px 1fr;
-  gap: 24px;
-  padding: 18px 0;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.session-list li time {
+.session-item {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: 24px;
+  width: 100%;
+  padding: 18px 16px;
+  margin: 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.session-item:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.session-item--active {
+  background: rgba(255,255,255,0.06);
+  border-left-color: var(--pink);
+}
+
+.session-item time {
   font-family: var(--font-display);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -823,18 +850,30 @@ select:focus-visible {
   color: rgba(255,255,255,0.85);
 }
 
-.session-list li.upcoming time { color: var(--pink); }
+.session-item--active time { color: var(--pink); }
 
-.session-list li h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
+.session-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.session-list li p {
+.session-item-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.session-item-detail {
+  display: block;
   font-size: 0.875rem;
   color: rgba(255,255,255,0.55);
   line-height: 1.5;
+}
+
+.session-item:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: -2px;
 }
 
 .timetable {
@@ -1443,7 +1482,7 @@ select:focus-visible {
   .outcome-pillar { border-right: none; }
   .outcome-pillar:nth-child(odd) { border-right: 1px solid var(--rule); }
 
-  .session-list li { grid-template-columns: 1fr; gap: 4px; }
+  .session-item { grid-template-columns: 1fr; gap: 8px; }
 
   .timetable th:nth-child(3),
   .timetable td:nth-child(3) { display: none; }

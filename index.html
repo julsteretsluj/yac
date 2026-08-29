@@ -240,10 +240,11 @@
 
         <div class="session-blocks" id="session-blocks">
           <h3 class="session-block-title" id="session-block-title">Session times in GMT+7</h3>
-          <ol class="session-list" id="tz-schedule"></ol>
+          <p class="session-block-hint">Select a session to view its program schedule below.</p>
+          <ol class="session-list" id="tz-schedule" role="list"></ol>
         </div>
 
-        <div class="program-timetable" id="program-timetable" role="tabpanel">
+        <div class="program-timetable" id="program-timetable" role="tabpanel" aria-labelledby="timetable-label">
           <p class="timetable-label" id="timetable-label" aria-live="polite"></p>
           <table class="timetable">
             <caption class="sr-only">Day program segments</caption>
