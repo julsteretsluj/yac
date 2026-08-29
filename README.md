@@ -16,7 +16,9 @@ Open [http://localhost:3000](http://localhost:3000).
 npx vercel --prod
 ```
 
-Live site: connect the GitHub repo at [vercel.com](https://vercel.com) for automatic deploys on push.
+Live site: [https://youthactionconference.vercel.app](https://youthactionconference.vercel.app)
+
+Connect the GitHub repo at [vercel.com](https://vercel.com) for automatic deploys on push (project: `youthactionconference`).
 
 ## Structure
 
