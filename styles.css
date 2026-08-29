@@ -1464,6 +1464,24 @@ select:focus-visible {
   max-width: 42ch;
 }
 
+.guidelines-download-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.text-link--light {
+  color: rgba(255,255,255,0.85);
+  border-bottom-color: rgba(255,255,255,0.45);
+}
+
+.text-link--light:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
 .guidelines-commitments {
   list-style: none;
   display: grid;
@@ -1607,6 +1625,8 @@ select:focus-visible {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .guidelines-download-actions { width: 100%; }
 
   .guidelines-commitments { grid-template-columns: 1fr; }
 
