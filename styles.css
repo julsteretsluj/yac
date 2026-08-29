@@ -1192,10 +1192,13 @@ select:focus-visible {
 /* ── 11 Registration ── */
 
 .cta-editorial {
-  display: grid;
-  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
-  gap: 48px 64px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cta-statement {
+  width: 100%;
 }
 
 .cta-display {
@@ -1220,11 +1223,12 @@ select:focus-visible {
 .cta-sub {
   font-size: 0.95rem;
   color: rgba(255,255,255,0.7);
-  max-width: 36ch;
+  max-width: 56ch;
   line-height: 1.6;
 }
 
 .register-embed {
+  width: 100%;
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
