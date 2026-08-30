@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 960" role="img" aria-label="">
+  <defs>
+    <filter id="banner-grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="mono"/>
+      <feComponentTransfer in="mono" result="grain">
+        <feFuncA type="linear" slope="0.035"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="grain" mode="multiply"/>
+    </filter>
+  </defs>
+  <g filter="url(#banner-grain)">
+    <rect width="2400" height="960" fill="#D4147A"/>
+    <polygon fill="#5B2D8E" points="0,0 620,0 480,320 0,420"/>
+    <polygon fill="#1B6FD4" points="620,0 1320,0 1180,280 900,180 680,260"/>
+    <polygon fill="#E5A800" points="480,320 900,180 1180,280 980,520 620,560 320,480"/>
+    <polygon fill="#5B2D8E" points="1320,0 2400,0 2400,360 1680,300 1480,120"/>
+    <polygon fill="#1B6FD4" points="1180,280 1680,300 1520,560 980,520"/>
+    <polygon fill="#D4147A" points="0,420 480,320 620,560 320,480 0,720"/>
+    <polygon fill="#1B6FD4" points="680,260 900,180 980,520 620,560 480,320"/>
+    <polygon fill="#E5A800" points="1480,120 1680,300 1520,560 1240,640 1040,420"/>
+    <polygon fill="#5B2D8E" points="2400,360 2400,960 1760,960 1520,560 1680,300"/>
+    <polygon fill="#D4147A" points="1520,560 1760,960 980,960 1240,640"/>
+    <polygon fill="#1B6FD4" points="980,520 1240,640 980,960 620,560"/>
+    <polygon fill="#E5A800" points="320,480 620,560 980,960 0,960 0,720"/>
+    <polygon fill="#5B2D8E" points="1040,420 1240,640 980,960 760,720 900,520"/>
+    <polygon fill="#D4147A" points="900,520 760,720 620,560 680,260"/>
+    <polygon fill="#1B6FD4" points="2400,0 2400,360 1680,300 1840,120 2100,80"/>
+    <polygon fill="#E5A800" points="1840,120 1680,300 1760,480 1980,360 2140,220"/>
+    <polygon fill="#D4147A" points="1760,480 1980,360 2140,220 2400,520 2400,960 1760,960 1520,560"/>
+  </g>
+</svg>
