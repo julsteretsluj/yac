@@ -255,6 +255,45 @@ select:focus-visible {
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
 
+.ripple-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-button__content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ripple-button__ripples {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ripple-button__ripple {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  transform: scale(0);
+  animation: rippling var(--ripple-duration, 600ms) ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippling {
+  0% { opacity: 1; transform: scale(0); }
+  100% { opacity: 0; transform: scale(2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ripple-button__ripple { display: none; }
+}
+
 .btn-primary {
   background: var(--pink);
   color: #fff;
@@ -394,6 +433,17 @@ select:focus-visible {
 .hero-line--pink { color: var(--pink); }
 .hero-line--purple { color: var(--purple); }
 .hero-line--blue { color: var(--blue); }
+
+[data-highlighter] {
+  position: relative;
+  display: inline-block;
+  background: transparent;
+}
+
+.hero-line[data-highlighter] {
+  display: block;
+}
+
 .hero-line--sub {
   font-size: 0.55em;
   font-weight: 700;
@@ -410,6 +460,35 @@ select:focus-visible {
   color: var(--ink-secondary);
   margin-bottom: 40px;
   max-width: 22ch;
+}
+
+.morphing-text-filters {
+  position: fixed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.morphing-text-host {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 1.35em;
+  color: var(--purple);
+  filter: url(#morphing-text-threshold) blur(0.6px);
+}
+
+.morphing-text__layer {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+}
+
+.hero-morphing {
+  margin-top: 4px;
 }
 
 .hero-actions {
@@ -473,11 +552,60 @@ select:focus-visible {
 
 /* ── 02 Conference ── */
 
+.text-reveal {
+  position: relative;
+  height: var(--text-reveal-height, 200vh);
+  margin: 0 0 48px;
+}
+
+.text-reveal__sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  min-height: 50vh;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 80px) 0;
+}
+
+.text-reveal__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.text-reveal__word {
+  position: relative;
+  display: inline-block;
+  margin: 0 0.18em 0.12em 0;
+  white-space: nowrap;
+}
+
+.text-reveal__ghost {
+  opacity: 0.2;
+}
+
+.text-reveal__revealed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--purple);
+  will-change: opacity;
+}
+
 .conference-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px 64px;
   margin-bottom: 56px;
+}
+
+.conference-body-copy--full {
+  grid-column: 1 / -1;
 }
 
 .conference-lead {
@@ -1164,8 +1292,32 @@ select:focus-visible {
 }
 
 .globe-graphic {
+  position: relative;
   width: 100%;
-  color: var(--ink);
+  min-height: 280px;
+}
+
+.globe-host {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.globe-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: grab;
+  contain: layout paint size;
+  transition: opacity 0.5s var(--ease);
+  touch-action: none;
+}
+
+.globe-canvas:active {
+  cursor: grabbing;
 }
 
 /* ── 09 Impact ── */
