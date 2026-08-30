@@ -140,20 +140,19 @@ select:focus-visible {
 }
 
 .site-header.is-compact .header-inner { min-height: 56px; padding: 8px 0; }
-.site-header.is-compact .logo-img--nav { height: 26px; }
+.site-header.is-compact .logo-img--nav { height: 28px; width: 28px; }
 
 .header-inner {
   display: flex;
   align-items: center;
-  gap: 32px;
-  min-height: 72px;
-  padding: 16px 0;
+  flex-wrap: nowrap;
+  gap: clamp(16px, 2vw, 28px);
+  min-height: 64px;
+  padding: 12px 0;
 }
 
 .brand {
-  flex-shrink: 1;
-  min-width: 0;
-  max-width: 200px;
+  flex-shrink: 0;
   text-decoration: none;
 }
 
@@ -165,7 +164,12 @@ select:focus-visible {
   object-fit: contain;
 }
 
-.logo-img--nav { height: 30px; width: auto; }
+.logo-img--nav {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .logo-img--partner { width: 120px; margin-bottom: 16px; }
 .logo-img--footer { width: 140px; margin-bottom: 16px; }
 
@@ -178,22 +182,27 @@ select:focus-visible {
   white-space: nowrap;
 }
 
-.site-nav { margin-left: auto; }
+.site-nav {
+  margin-left: auto;
+  min-width: 0;
+}
 
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 28px;
+  flex-wrap: nowrap;
+  gap: clamp(10px, 1.2vw, 20px);
   list-style: none;
 }
 
 .nav-list a {
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink-secondary);
   text-decoration: none;
+  white-space: nowrap;
   transition: color 0.2s var(--ease);
 }
 
@@ -1481,9 +1490,11 @@ select:focus-visible {
 
 /* ── Responsive ── */
 
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .nav-date { display: none; }
+}
 
+@media (max-width: 960px) {
   .hero-editorial,
   .conference-grid,
   .edition-cards,
@@ -1558,8 +1569,8 @@ select:focus-visible {
   .header-inner { position: relative; flex-wrap: wrap; }
   .nav-toggle { display: flex; }
 
-  .brand { max-width: 140px; }
-  .logo-img--nav { height: 26px; }
+  .brand { flex-shrink: 0; }
+  .logo-img--nav { height: 28px; width: 28px; }
 
   .hero-display { font-size: clamp(2.75rem, 14vw, 4rem); }
 
