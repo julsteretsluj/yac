@@ -1174,6 +1174,7 @@ select:focus-visible {
   gap: 40px;
 }
 
+.credits-founders-link h4,
 .credits-founders h4,
 .credits-hosts h4 {
   font-size: 0.625rem;
@@ -1182,6 +1183,18 @@ select:focus-visible {
   text-transform: uppercase;
   color: var(--ink-tertiary);
   margin-bottom: 16px;
+}
+
+.credits-founders-link {
+  padding-bottom: 8px;
+}
+
+.credits-founders-names {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.5;
 }
 
 .credits-founders ul,
@@ -1213,6 +1226,12 @@ select:focus-visible {
   line-height: 1.6;
   max-width: 48ch;
 }
+
+.host-bio--stacked p {
+  margin: 0 0 12px;
+}
+
+.host-bio--stacked p:last-child { margin-bottom: 0; }
 
 .partnership-apply {
   margin-top: 40px;
@@ -1846,3 +1865,76 @@ select:focus-visible {
   color: var(--purple);
   margin-bottom: 6px;
 }
+
+/* ── Founders page ── */
+
+.page-founders .founders-hero {
+  padding-top: clamp(48px, 8vw, 80px);
+}
+
+.founders-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.founders-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--purple);
+  margin-bottom: 28px;
+  max-width: 36ch;
+}
+
+.founders-intro {
+  color: var(--ink-secondary);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+.founders-roster {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.founder-entry {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.founder-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.founder-label {
+  margin: 0 0 16px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+}
+
+.founder-bio {
+  max-width: 62ch;
+}
+
+.founder-bio p {
+  margin: 0 0 12px;
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+}
+
+.founder-bio p:last-child { margin-bottom: 0; }
