@@ -36,9 +36,9 @@ const upcomingConferences = [
     cta: { href: '#register', label: 'Register ↗' },
   },
   {
-    start: '2026-11-21',
-    end: '2026-11-22',
-    dates: '21—22 Nov 2026',
+    start: '2026-11-28',
+    end: '2026-11-29',
+    dates: '28—29 Nov 2026',
     theme: 'Climate Action',
     tagline: 'Youth-led solutions for a changing planet',
     status: 'soon',

@@ -389,16 +389,31 @@ select:focus-visible {
   position: relative;
   z-index: 1;
   width: 100%;
-  margin-bottom: clamp(40px, 6vw, 72px);
+  overflow: hidden;
 }
 
-.site-banner img {
+.site-banner--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: clamp(140px, 24vw, 300px);
+}
+
+.site-banner--split img {
   display: block;
   width: 100%;
-  height: clamp(140px, 24vw, 300px);
+  height: 100%;
   object-fit: cover;
   object-position: center;
-  image-rendering: auto;
+}
+
+.site-banner--subpage {
+  height: clamp(100px, 16vw, 200px);
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero .site-banner {
+  margin-bottom: clamp(40px, 6vw, 72px);
 }
 
 .hero-orbit {
