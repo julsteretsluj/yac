@@ -33,7 +33,7 @@ const upcomingConferences = [
     status: 'open',
     statusLabel: 'Registration open',
     accent: 'pink',
-    cta: { href: '#register', label: 'Register ↗' },
+    cta: { href: 'register.html', label: 'Register ↗' },
   },
   {
     start: '2026-11-28',
@@ -44,7 +44,7 @@ const upcomingConferences = [
     status: 'soon',
     statusLabel: 'Save the date',
     accent: 'blue',
-    cta: { href: '#upcoming', label: 'Save the date →' },
+    cta: { href: 'upcoming.html', label: 'Save the date →' },
   },
   {
     start: '2027-01',
@@ -55,7 +55,7 @@ const upcomingConferences = [
     status: 'planned',
     statusLabel: 'Theme confirmed',
     accent: 'purple',
-    cta: { href: '#upcoming', label: 'Save the date →' },
+    cta: { href: 'upcoming.html', label: 'Save the date →' },
   },
   {
     start: '2027-03-20',
@@ -66,7 +66,7 @@ const upcomingConferences = [
     status: 'planned',
     statusLabel: 'Theme confirmed',
     accent: 'yellow',
-    cta: { href: '#upcoming', label: 'Save the date →' },
+    cta: { href: 'upcoming.html', label: 'Save the date →' },
   },
   {
     start: '2027-05-15',
@@ -77,7 +77,7 @@ const upcomingConferences = [
     status: 'tba',
     statusLabel: 'Details forthcoming',
     accent: 'pink',
-    cta: { href: '#upcoming', label: 'Details forthcoming' },
+    cta: { href: 'upcoming.html', label: 'Details forthcoming' },
   },
   {
     start: '2027-07-17',
@@ -88,7 +88,7 @@ const upcomingConferences = [
     status: 'tba',
     statusLabel: 'Details forthcoming',
     accent: 'blue',
-    cta: { href: '#upcoming', label: 'Details forthcoming' },
+    cta: { href: 'upcoming.html', label: 'Details forthcoming' },
   },
 ];
 

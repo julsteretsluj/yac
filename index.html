@@ -13,28 +13,17 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body data-page="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
     <div class="wrap header-inner">
-      <a href="#top" class="brand">
+      <a href="index.html" class="brand">
         <img class="logo-img logo-img--nav" src="public/favicon-32.png" alt="Youth Action Conference" width="32" height="32" />
       </a>
       <time class="nav-date" datetime="2026-09-26">26—27 Sep 2026</time>
       <nav class="site-nav" aria-label="Main">
-        <ul class="nav-list">
-          <li><a href="#conference">Conference</a></li>
-          <li><a href="#upcoming">Upcoming</a></li>
-          <li><a href="#program">Program</a></li>
-          <li><a href="#speakers">Speakers</a></li>
-          <li><a href="founders.html">Founders</a></li>
-          <li><a href="guidelines.html">Guidelines</a></li>
-          <li><a href="conduct.html">Conduct</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="#register" class="nav-register">Register <span aria-hidden="true">↗</span></a></li>
-        </ul>
+        <ul class="nav-list" data-site-nav></ul>
       </nav>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
@@ -44,7 +33,6 @@
 
   <main id="main">
 
-    <!-- 01 HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="interactive-grid" data-interactive-grid data-grid-size="36" aria-hidden="true"></div>
       <div
@@ -102,8 +90,8 @@
             ></span>
           </p>
           <div class="hero-actions">
-            <a href="#register" class="btn btn-primary">Register <span aria-hidden="true">↗</span></a>
-            <a href="#program" class="text-link">Explore program <span aria-hidden="true">→</span></a>
+            <a href="register.html" class="btn btn-primary">Register <span aria-hidden="true">↗</span></a>
+            <a href="program.html" class="text-link">Explore program <span aria-hidden="true">→</span></a>
           </div>
           <p class="hero-note">Independent youth initiative · Not officially endorsed</p>
         </div>
@@ -118,388 +106,8 @@
       </div>
     </section>
 
-    <!-- 02 THE CONFERENCE -->
-    <section id="conference" class="section">
-      <div class="wrap">
-        <header class="chapter-mark">
-          <div class="chapter-body">
-            <h2 class="chapter-title">The<br>conference</h2>
-            <p class="chapter-deck">A two-day virtual summit where young people lead the conversation on the issues shaping our world.</p>
-          </div>
-        </header>
-        <div
-          class="text-reveal"
-          data-text-reveal
-          data-text-reveal-height="180"
-          aria-label="Conference mission statement"
-        >Youth Action Conference brings together student leaders, youth advocates, and changemakers from every continent for masterclasses, workshops, and open debate — on a new theme every edition.</div>
-        <div class="conference-grid">
-          <div class="conference-body-copy conference-body-copy--full">
-            <p>
-              Each edition spans two days with four timed sessions — so participants in Asia, Africa,
-              the Americas, and the Pacific each have a live window to join. Past and upcoming themes
-              include human rights, climate action, education, and more. Organized by
-              <strong>IOY Ambassadors</strong>, YAC is peer-led and action-oriented. Participants leave
-              with certificates, new connections, and concrete next steps for projects they can launch
-              in their schools and communities.
-            </p>
-          </div>
-        </div>
-        <dl class="fact-strip">
-          <div><dt>Frequency</dt><dd>Every 2 months</dd></div>
-          <div><dt>Duration</dt><dd>2 days</dd></div>
-          <div><dt>Sessions</dt><dd>4 live blocks</dd></div>
-          <div><dt>Cost</dt><dd>Free</dd></div>
-          <div><dt>Certificate</dt><dd>Included</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- UPCOMING EDITIONS -->
-    <section id="upcoming" class="section section--ruled" aria-labelledby="upcoming-title">
-      <div class="wrap">
-        <header class="upcoming-header">
-          <h2 id="upcoming-title" class="upcoming-title">Upcoming conferences</h2>
-          <p class="upcoming-deck">A new theme every two months. Virtual, global, free to attend.</p>
-        </header>
-        <div class="edition-cards" id="edition-cards" role="list"></div>
-      </div>
-    </section>
-
-    <!-- 03 THE BIG IDEA -->
-    <section id="theme" class="section section--tint">
-      <div class="wrap">
-        <header class="chapter-mark">
-          <div class="chapter-body">
-            <h2 class="chapter-title">The big<br>idea</h2>
-          </div>
-        </header>
-        <p class="edition-label">September 2026 edition · Human rights</p>
-        <p class="theme-sub">Youth stances on human rights, from the classroom to the global stage.</p>
-        <p class="theme-note">Every two months, YAC takes on a new theme — climate change, education, democracy, and other issues young people care about.</p>
-        <ol class="manifesto-index">
-          <li><span class="manifesto-num manifesto-num--pink">01</span>Freedom of expression &amp; assembly</li>
-          <li><span class="manifesto-num manifesto-num--purple">02</span>Minority rights &amp; non-discrimination</li>
-          <li><span class="manifesto-num manifesto-num--blue">03</span>Democracy &amp; legal remedy</li>
-          <li><span class="manifesto-num manifesto-num--yellow">04</span>Education &amp; living standards</li>
-          <li><span class="manifesto-num manifesto-num--pink">05</span>Youth empowerment &amp; global health (SDG3)</li>
-          <li><span class="manifesto-num manifesto-num--blue">06</span>Freedom from arbitrary arrest</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 04 WHAT HAPPENS -->
-    <section id="experiences" class="section">
-      <div class="wrap">
-        <header class="chapter-mark">
-          <div class="chapter-body">
-            <h2 class="chapter-title">What<br>happens</h2>
-            <p class="chapter-deck">Six hours of structured programming in every session block.</p>
-          </div>
-        </header>
-        <ol class="journey">
-          <li class="journey-step">
-            <span class="journey-num">01</span>
-            <div class="journey-content">
-              <h3>Masterclass</h3>
-              <p>Keynotes from journalists, advocates, and youth leaders — followed by live Q&amp;A and compiled FAQ documents.</p>
-            </div>
-          </li>
-          <li class="journey-step">
-            <span class="journey-num">02</span>
-            <div class="journey-content">
-              <h3>Workshop</h3>
-              <p>Small-group activities led by speakers on topics tied to real situations in their countries.</p>
-            </div>
-          </li>
-          <li class="journey-step">
-            <span class="journey-num">03</span>
-            <div class="journey-content">
-              <h3>Debate</h3>
-              <p>Day 2 floor discussion debating key sections of adopted resolutions from regional and cultural perspectives.</p>
-            </div>
-          </li>
-          <li class="journey-step">
-            <span class="journey-num">04</span>
-            <div class="journey-content">
-              <h3>Action</h3>
-              <p>Selected solutions presented to the full conference and shared on YAC channels.</p>
-            </div>
-          </li>
-          <li class="journey-step">
-            <span class="journey-num">05</span>
-            <div class="journey-content">
-              <h3>Recognition</h3>
-              <p>Awards for outstanding contributors. All participants receive a certificate of attendance.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 05 WHO IT'S FOR -->
-    <section id="audience" class="section section--ruled">
-      <div class="wrap">
-        <header class="chapter-mark chapter-mark--compact">
-          <h2 class="chapter-title">Who it's for</h2>
-        </header>
-        <div class="audience-territories">
-          <article class="territory territory--pink">
-            <h3>Young participants</h3>
-            <p>Students and youth advocates aged roughly 14–25 who want to engage with global issues beyond the textbook — through dialogue, debate, and hands-on workshops.</p>
-          </article>
-          <article class="territory territory--purple">
-            <h3>Speakers &amp; hosts</h3>
-            <p>Confirmed speakers and volunteer hosts who deliver masterclasses and moderate sessions. The September 2026 speaker lineup is full — five slots confirmed.</p>
-          </article>
-          <article class="territory territory--blue">
-            <h3>Schools &amp; organizations</h3>
-            <p>Educators, youth organizations, and institutional partners looking for a credible, free virtual program their students can join from anywhere.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 06 PROGRAM -->
-    <section id="program" class="section section--dark">
-      <div class="wrap">
-        <header class="chapter-mark chapter-mark--light">
-          <div class="chapter-body">
-            <h2 class="chapter-title">Program</h2>
-            <p class="chapter-deck">September 26–27, 2026 · Select your timezone and day.</p>
-          </div>
-        </header>
-
-        <div class="program-controls">
-          <div class="day-tabs" role="tablist" aria-label="Conference day">
-            <button class="day-tab active" role="tab" aria-selected="true" data-day="1">Day 1 — 26 Sep</button>
-            <button class="day-tab" role="tab" aria-selected="false" data-day="2">Day 2 — 27 Sep</button>
-          </div>
-          <div class="tz-picker" role="group" aria-label="Timezone">
-            <label for="tz-select" class="tz-label">Your timezone</label>
-            <select id="tz-select" class="tz-select" aria-describedby="tz-select-hint">
-              <option value="">Loading timezones…</option>
-            </select>
-            <p id="tz-select-hint" class="tz-hint">Times are calculated for your selected offset from UTC.</p>
-          </div>
-        </div>
-
-        <div class="session-blocks" id="session-blocks">
-          <h3 class="session-block-title" id="session-block-title">Session times in GMT+7</h3>
-          <p class="session-block-hint">Select a session to view its program schedule below.</p>
-          <ol class="session-list" id="tz-schedule" role="list"></ol>
-        </div>
-
-        <div class="program-timetable" id="program-timetable" role="tabpanel" aria-labelledby="timetable-label">
-          <p class="timetable-label" id="timetable-label" aria-live="polite"></p>
-          <table class="timetable">
-            <caption class="sr-only">Day program segments</caption>
-            <thead>
-              <tr><th scope="col">Time</th><th scope="col">Event</th><th scope="col">Description</th></tr>
-            </thead>
-            <tbody id="timetable-body"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- 07 SPEAKERS -->
-    <section id="speakers" class="section">
-      <div class="wrap">
-        <header class="chapter-mark">
-          <div class="chapter-body">
-            <h2 class="chapter-title">Speakers &amp;<br>contributors</h2>
-            <p class="chapter-deck">Five speakers confirmed for September 2026. The lineup is full.</p>
-          </div>
-        </header>
-        <div class="speaker-roster">
-          <article class="speaker-entry speaker-entry--lead">
-            <p class="speaker-meta">Europe / GMT+1</p>
-            <h3 class="speaker-name"><span>Katarina</span> Beković</h3>
-            <p class="speaker-role">Media Specialist · Journalist · Youth Activist</p>
-            <div data-person-bio="katarina-bekovic" data-bio-variant="speaker"></div>
-            <ul class="speaker-topics">
-              <li>→ Freedom from arbitrary arrest</li>
-              <li>→ Freedom of assembly</li>
-              <li>→ Right to democracy</li>
-            </ul>
-          </article>
-          <article class="speaker-entry">
-            <p class="speaker-meta">Nigeria / West Africa</p>
-            <h3 class="speaker-name">Comfort Polit</h3>
-            <p class="speaker-role">Youth Speaker</p>
-          </article>
-          <article class="speaker-entry">
-            <p class="speaker-meta">Nigeria / West Africa</p>
-            <h3 class="speaker-name">Ogbobi Favour</h3>
-            <p class="speaker-role">Public Speaker · Youth Advocate</p>
-            <div data-person-bio="ogbobi-favour" data-bio-variant="speaker"></div>
-            <ul class="speaker-topics">
-              <li>→ Youth empowerment &amp; freedom of expression</li>
-              <li>→ Digital media &amp; youth participation</li>
-            </ul>
-          </article>
-          <article class="speaker-entry">
-            <p class="speaker-meta">Nigeria / West Africa</p>
-            <h3 class="speaker-name">Goodness Ugonna Ezeani</h3>
-            <p class="speaker-role">Global Health &amp; SDG3 Advocate</p>
-            <p class="speaker-session"><em>Healthy by Choice or by Chance?</em></p>
-          </article>
-          <article class="speaker-entry">
-            <p class="speaker-meta">Pakistan / Asia</p>
-            <h3 class="speaker-name">Abgeeta Mekel</h3>
-            <p class="speaker-role">Vice President, Nehemiah Movement</p>
-            <div data-person-bio="abgeeta-mekel" data-bio-variant="speaker"></div>
-            <ul class="speaker-topics">
-              <li>→ Minority rights under international law</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 08 GLOBAL COMMUNITY -->
-    <section id="global" class="section section--ruled">
-      <div class="wrap global-section">
-        <header class="chapter-mark chapter-mark--compact">
-          <h2 class="chapter-title">Global<br>community</h2>
-        </header>
-        <div class="global-composition">
-          <div class="global-regions">
-            <p class="global-lead">Four session blocks timed for different regions — youth in every timezone can participate live.</p>
-            <ul class="region-names">
-              <li><span class="spark" aria-hidden="true">✦</span> Asia</li>
-              <li><span class="spark" aria-hidden="true">✦</span> Pacific</li>
-              <li><span class="spark" aria-hidden="true">✦</span> Africa</li>
-              <li><span class="spark" aria-hidden="true">✦</span> Europe</li>
-              <li><span class="spark" aria-hidden="true">✦</span> Americas</li>
-              <li><span class="spark" aria-hidden="true">✦</span> Middle East</li>
-            </ul>
-            <dl class="global-metrics">
-              <div><dt>5+</dt><dd>confirmed speakers</dd></div>
-              <div><dt>3</dt><dd>host moderators</dd></div>
-              <div><dt>12+</dt><dd>topics this edition</dd></div>
-              <div><dt>4</dt><dd>regional windows</dd></div>
-            </dl>
-          </div>
-          <div class="global-graphic">
-            <div class="globe-host" data-globe aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 09 IMPACT -->
-    <section id="impact" class="section section--tint">
-      <div class="wrap">
-        <header class="chapter-mark chapter-mark--compact">
-          <h2 class="chapter-title">What you<br>leave with</h2>
-        </header>
-        <div class="outcomes-manifesto">
-          <div class="outcome-pillar"><span class="outcome-num">01</span><span class="outcome-word">Connections</span></div>
-          <div class="outcome-pillar"><span class="outcome-num">02</span><span class="outcome-word">Knowledge</span></div>
-          <div class="outcome-pillar"><span class="outcome-num">03</span><span class="outcome-word">Action</span></div>
-          <div class="outcome-pillar"><span class="outcome-num">04</span><span class="outcome-word">Perspective</span></div>
-          <div class="outcome-pillar"><span class="outcome-num">05</span><span class="outcome-word">Recognition</span></div>
-        </div>
-        <ul class="outcome-details">
-          <li><span class="spark" aria-hidden="true">✦</span> Certificate of participation</li>
-          <li><span class="spark" aria-hidden="true">✦</span> Direct access to speakers and peer networks across regions</li>
-          <li><span class="spark" aria-hidden="true">✦</span> Workshop outputs and speaker FAQ compilations</li>
-          <li><span class="spark" aria-hidden="true">✦</span> A framework for launching action projects in your school or community</li>
-          <li><span class="spark" aria-hidden="true">✦</span> Panel debate summaries and regional perspective highlights</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 10 PARTNERS -->
-    <section id="partners" class="section section--ruled">
-      <div class="wrap">
-        <header class="chapter-mark chapter-mark--compact">
-          <h2 class="chapter-title">Organized<br>by</h2>
-        </header>
-        <div class="credits-layout">
-          <div class="credits-main">
-            <img class="logo-img logo-img--partner" src="public/logo.png" alt="" width="140" height="93" />
-            <div>
-              <h3>IOY Ambassadors</h3>
-              <p>Volunteer youth leaders who organize, moderate, and host each edition of Youth Action Conference.</p>
-              <p class="credits-disclaimer">Independent youth initiative · Not officially endorsed by any institution.</p>
-            </div>
-          </div>
-          <div class="credits-side">
-            <div class="credits-founders-link">
-              <h4>Founders</h4>
-              <p class="credits-founders-names">Jules Kitto-Astrop, Katarina Beković &amp; Abgeeta Mekel</p>
-              <a href="founders.html" class="text-link">Meet the founders <span aria-hidden="true">→</span></a>
-            </div>
-            <div class="credits-hosts">
-              <h4>Conference hosts — September 2026</h4>
-              <ul>
-                <li>
-                  <span class="host-name">Jules Kitto-Astrop</span>
-                  <span class="host-sessions">Day 1 S1 · Day 2 S1</span>
-                  <div data-person-bio="jules-kitto-astrop" data-bio-variant="host"></div>
-                </li>
-                <li><span class="host-name">Dominique Chloe Gwyneth Djamal</span><span class="host-sessions">Day 1 S1 · Day 2 S2</span></li>
-                <li><span class="host-name">Asomugha Zingisa</span><span class="host-sessions">Day 1 S2</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div id="partnership" class="partnership-apply">
-          <p class="partners-note">Interested in partnering or sponsoring? Apply below or <a href="mailto:youthactionconference@gmail.com" class="text-link">email us <span aria-hidden="true">→</span></a>.</p>
-          <h3 class="partnership-apply-title">Partnership application</h3>
-          <p class="partnership-apply-lead">Schools, youth organizations, and sponsors — tell us how you would like to collaborate with Youth Action Conference.</p>
-          <div class="register-embed">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdQsCTusDyrXAhqUq4-4ISJzHw8S2UZeo7on0I8ec76rf9GXg/viewform?embedded=true"
-              title="YAC partnership application form"
-              width="100%"
-              height="1200"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              loading="lazy"
-            >Loading partnership application…</iframe>
-            <a href="https://forms.gle/eoKTusodZeaobZ28A" class="register-embed-link" target="_blank" rel="noopener noreferrer">
-              Open form in new tab <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11 REGISTRATION -->
-    <section id="register" class="section section--cta">
-      <div class="wrap cta-editorial">
-        <div class="cta-statement">
-          <h2 class="cta-display">Join the <span data-highlighter data-highlight-color="rgba(229, 168, 0, 0.45)" data-highlight-inview="true" data-highlight-duration="700">conversation</span>.</h2>
-          <p class="cta-date">26—27 Sep 2026</p>
-          <p class="cta-sub">Register as a participant to receive session links, your timezone schedule, and conference updates.</p>
-        </div>
-        <div class="register-embed">
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSeH63L3mqlWeP6zvpXNTZkloBsMm-FlSjoGmwexM34clLm3wg/viewform?embedded=true"
-            title="YAC participant registration form"
-            width="100%"
-            height="1400"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            loading="lazy"
-          >Loading registration form…</iframe>
-          <p class="register-embed-note">Speaker slots for September 2026 are full. Participant registration only. By registering, you agree to our <a href="conduct.html">Code of Conduct</a> and <a href="safeguarding.html">Safeguarding Policy</a>.</p>
-          <a href="https://forms.gle/CUCmCJZDBGCRwa767" class="register-embed-link" target="_blank" rel="noopener noreferrer">
-            Open form in new tab <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- 12 FOOTER -->
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div class="footer-brand">
@@ -508,19 +116,7 @@
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <h4>Conference</h4>
-        <ul>
-          <li><a href="#conference">About</a></li>
-          <li><a href="#upcoming">Upcoming</a></li>
-          <li><a href="#program">Program</a></li>
-          <li><a href="#speakers">Speakers</a></li>
-          <li><a href="founders.html">Founders</a></li>
-          <li><a href="guidelines.html">Guidelines</a></li>
-          <li><a href="conduct.html">Conduct</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="#register">Register</a></li>
-          <li><a href="#partnership">Partner</a></li>
-        </ul>
+        <ul data-site-footer-nav></ul>
       </nav>
       <div class="footer-contact">
         <h4>Contact</h4>
@@ -534,14 +130,12 @@
     </div>
   </footer>
 
+  <script src="site-shell.js"></script>
   <script src="main.js"></script>
-  <script src="people.js"></script>
   <script src="interactive-grid.js"></script>
   <script src="noise-texture.js"></script>
   <script src="ripple-button.js"></script>
   <script type="module" src="highlighter.js"></script>
   <script src="morphing-text.js"></script>
-  <script src="text-reveal.js"></script>
-  <script type="module" src="globe.js"></script>
 </body>
 </html>

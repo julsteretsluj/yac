@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="page-guidelines">
+<body data-page="guidelines" class="page-guidelines">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" id="top">
@@ -23,18 +23,7 @@
       </a>
       <time class="nav-date" datetime="2026-09-26">26—27 Sep 2026</time>
       <nav class="site-nav" aria-label="Main">
-        <ul class="nav-list">
-          <li><a href="index.html#conference">Conference</a></li>
-          <li><a href="index.html#upcoming">Upcoming</a></li>
-          <li><a href="index.html#program">Program</a></li>
-          <li><a href="index.html#speakers">Speakers</a></li>
-          <li><a href="founders.html">Founders</a></li>
-          <li><a href="guidelines.html" aria-current="page">Guidelines</a></li>
-          <li><a href="conduct.html">Conduct</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="index.html#register" class="nav-register">Register <span aria-hidden="true">↗</span></a></li>
-        </ul>
+        <ul class="nav-list" data-site-nav></ul>
       </nav>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
@@ -217,18 +206,7 @@
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <h4>Conference</h4>
-        <ul>
-          <li><a href="index.html#conference">About</a></li>
-          <li><a href="index.html#upcoming">Upcoming</a></li>
-          <li><a href="index.html#program">Program</a></li>
-          <li><a href="index.html#speakers">Speakers</a></li>
-          <li><a href="founders.html">Founders</a></li>
-          <li><a href="guidelines.html" aria-current="page">Guidelines</a></li>
-          <li><a href="conduct.html">Conduct</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="index.html#register">Register</a></li>
-        </ul>
+        <ul data-site-footer-nav></ul>
       </nav>
       <div class="footer-contact">
         <h4>Contact</h4>
@@ -242,6 +220,7 @@
     </div>
   </footer>
 
+  <script src="site-shell.js"></script>
   <script src="main.js"></script>
   <script src="ripple-button.js"></script>
 </body>

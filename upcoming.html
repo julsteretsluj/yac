@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Upcoming Youth Action Conference editions — a new theme every two months. Virtual, global, free to attend." />
+  <title>Upcoming · Youth Action Conference</title>
+  <link rel="icon" href="public/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="public/favicon.png" type="image/png" sizes="512x512" />
+  <link rel="apple-touch-icon" href="public/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-upcoming" data-page="upcoming">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a href="index.html" class="brand">
+        <img class="logo-img logo-img--nav" src="public/favicon-32.png" alt="Youth Action Conference" width="32" height="32" />
+      </a>
+      <time class="nav-date" datetime="2026-09-26">26—27 Sep 2026</time>
+      <nav class="site-nav" aria-label="Main">
+        <ul class="nav-list" data-site-nav></ul>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="site-banner site-banner--split site-banner--subpage" aria-hidden="true">
+    <img class="site-banner__geo" src="public/banner.svg" alt="" width="2400" height="960" decoding="async" />
+    <img class="site-banner__organic" src="public/banner-organic.png" alt="" width="1024" height="409" decoding="async" />
+  </div>
+
+  <main id="main">
+    <section class="section section--ruled" aria-labelledby="upcoming-title">
+      <div class="wrap">
+        <header class="upcoming-header">
+          <h1 id="upcoming-title" class="upcoming-title">Upcoming conferences</h1>
+          <p class="upcoming-deck">A new theme every two months. Virtual, global, free to attend.</p>
+        </header>
+        <div class="edition-cards" id="edition-cards" role="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <img class="logo-img logo-img--footer" src="public/logo.png" alt="Youth Action Conference" width="160" height="107" />
+        <p>Bi-monthly virtual youth summit on rotating global themes.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <h4>Conference</h4>
+        <ul data-site-footer-nav></ul>
+      </nav>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><a href="mailto:youthactionconference@gmail.com">youthactionconference@gmail.com</a></p>
+        <p class="footer-disclaimer">Organized by IOY Ambassadors. Independent initiative — not officially endorsed.</p>
+      </div>
+      <div class="footer-legal">
+        <p>&copy; 2026 Youth Action Conference</p>
+        <p>Next edition: 26–27 September 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="site-shell.js"></script>
+  <script src="main.js"></script>
+  <script src="ripple-button.js"></script>
+</body>
+</html>
