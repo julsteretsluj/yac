@@ -46,6 +46,13 @@
 
     <!-- 01 HERO -->
     <section class="hero" aria-labelledby="hero-title">
+      <div class="interactive-grid" data-interactive-grid data-grid-size="36" aria-hidden="true"></div>
+      <div
+        class="noise-texture-host noise-texture-host--hero"
+        data-noise-texture
+        data-noise-opacity="0.45"
+        aria-hidden="true"
+      ></div>
       <div class="site-banner">
         <img
           src="public/banner.png"
@@ -55,6 +62,13 @@
           decoding="async"
           fetchpriority="high"
         />
+        <div
+          class="noise-texture-host noise-texture-host--banner"
+          data-noise-texture
+          data-noise-opacity="0.22"
+          data-noise-frequency="0.55"
+          aria-hidden="true"
+        ></div>
       </div>
       <div class="wrap hero-editorial">
         <div class="hero-main">
@@ -509,5 +523,7 @@
 
   <script src="main.js"></script>
   <script src="people.js"></script>
+  <script src="interactive-grid.js"></script>
+  <script src="noise-texture.js"></script>
 </body>
 </html>
