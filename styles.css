@@ -1150,6 +1150,113 @@ select:focus-visible {
 .timetable td:nth-child(2) { font-weight: 500; }
 .timetable td:nth-child(3) { color: rgba(255,255,255,0.55); }
 
+.program-layout {
+  display: grid;
+  gap: 24px;
+}
+
+/* Program page — compact, shorter layout */
+.page-program .section {
+  padding: clamp(40px, 6vw, 72px) 0;
+}
+
+.page-program .site-banner--subpage {
+  height: clamp(72px, 12vw, 140px);
+}
+
+.page-program .chapter-mark {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+}
+
+.page-program .chapter-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+
+.page-program .chapter-deck {
+  margin-top: 8px;
+  font-size: 0.9375rem;
+}
+
+.page-program .program-controls {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  gap: 16px;
+}
+
+.page-program .day-tab {
+  padding: 8px 16px;
+}
+
+.page-program .tz-hint {
+  margin-top: 6px;
+  font-size: 0.6875rem;
+}
+
+.page-program .session-list {
+  margin-bottom: 0;
+}
+
+.page-program .session-item {
+  grid-template-columns: 108px 1fr;
+  gap: 12px;
+  padding: 10px 12px;
+}
+
+.page-program .session-item time {
+  font-size: 0.8125rem;
+}
+
+.page-program .session-item-title {
+  font-size: 0.875rem;
+}
+
+.page-program .session-item-detail {
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.page-program .timetable-label {
+  margin-bottom: 10px;
+  font-size: 0.5625rem;
+}
+
+.page-program .timetable th {
+  padding: 0 12px 8px 0;
+}
+
+.page-program .timetable td {
+  padding: 9px 12px 9px 0;
+  font-size: 0.8125rem;
+}
+
+.page-program .timetable td:first-child {
+  width: 64px;
+}
+
+@media (min-width: 900px) {
+  .page-program .program-layout {
+    grid-template-columns: minmax(240px, 0.9fr) minmax(0, 1.1fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .page-program .program-timetable {
+    max-height: min(62vh, 480px);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+
+  .page-program .program-timetable::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .page-program .program-timetable::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+}
+
 /* ── 07 Speakers ── */
 
 .speaker-roster {

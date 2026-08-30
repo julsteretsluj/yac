@@ -39,10 +39,10 @@
   <main id="main">
     <section class="section section--dark">
       <div class="wrap">
-        <header class="chapter-mark chapter-mark--light">
+        <header class="chapter-mark chapter-mark--light chapter-mark--compact">
           <div class="chapter-body">
             <h1 class="chapter-title">Program</h1>
-            <p class="chapter-deck">September 26–27, 2026 · Select your timezone and day.</p>
+            <p class="chapter-deck">26–27 Sep 2026 · Pick a day and timezone.</p>
           </div>
         </header>
 
@@ -56,25 +56,26 @@
             <select id="tz-select" class="tz-select" aria-describedby="tz-select-hint">
               <option value="">Loading timezones…</option>
             </select>
-            <p id="tz-select-hint" class="tz-hint">Times are calculated for your selected offset from UTC.</p>
+            <p id="tz-select-hint" class="tz-hint">Times use your selected UTC offset.</p>
           </div>
         </div>
 
-        <div class="session-blocks" id="session-blocks">
-          <h2 class="session-block-title" id="session-block-title">Session times in GMT+7</h2>
-          <p class="session-block-hint">Select a session to view its program schedule below.</p>
-          <ol class="session-list" id="tz-schedule" role="list"></ol>
-        </div>
+        <div class="program-layout">
+          <div class="session-blocks" id="session-blocks">
+            <h2 class="session-block-title" id="session-block-title">Session times in GMT+7</h2>
+            <ol class="session-list" id="tz-schedule" role="list"></ol>
+          </div>
 
-        <div class="program-timetable" id="program-timetable" role="tabpanel" aria-labelledby="timetable-label">
-          <p class="timetable-label" id="timetable-label" aria-live="polite"></p>
-          <table class="timetable">
-            <caption class="sr-only">Day program segments</caption>
-            <thead>
-              <tr><th scope="col">Time</th><th scope="col">Event</th><th scope="col">Description</th></tr>
-            </thead>
-            <tbody id="timetable-body"></tbody>
-          </table>
+          <div class="program-timetable" id="program-timetable" role="tabpanel" aria-labelledby="timetable-label">
+            <p class="timetable-label" id="timetable-label" aria-live="polite"></p>
+            <table class="timetable">
+              <caption class="sr-only">Day program segments</caption>
+              <thead>
+                <tr><th scope="col">Time</th><th scope="col">Event</th><th scope="col">Description</th></tr>
+              </thead>
+              <tbody id="timetable-body"></tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
