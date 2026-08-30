@@ -957,7 +957,8 @@ select:focus-visible {
   line-height: 1.1;
   letter-spacing: -0.03em;
   grid-column: 2;
-  grid-row: 1 / span 3;
+  grid-row: 1;
+  align-self: start;
 }
 
 .speaker-entry--lead .speaker-name {
@@ -974,6 +975,21 @@ select:focus-visible {
 }
 
 .speaker-entry--lead .speaker-role { grid-column: auto; margin-bottom: 16px; }
+
+.speaker-bio {
+  grid-column: 2;
+  margin: 12px 0 4px;
+  max-width: 62ch;
+}
+
+.speaker-bio p {
+  margin: 0 0 12px;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.speaker-bio p:last-child { margin-bottom: 0; }
 
 .speaker-session,
 .speaker-topics {
@@ -1188,6 +1204,14 @@ select:focus-visible {
   font-size: 0.75rem;
   color: var(--ink-tertiary);
   margin-top: 2px;
+}
+
+.host-bio {
+  margin: 12px 0 0;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  max-width: 48ch;
 }
 
 .partnership-apply {
@@ -1472,6 +1496,7 @@ select:focus-visible {
 
   .speaker-name,
   .speaker-role,
+  .speaker-bio,
   .speaker-topics,
   .speaker-session { grid-column: 1; }
 }
