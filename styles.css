@@ -1152,6 +1152,13 @@ select:focus-visible {
   color: var(--ink-tertiary) !important;
 }
 
+.credits-side {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.credits-founders h4,
 .credits-hosts h4 {
   font-size: 0.625rem;
   font-weight: 600;
@@ -1161,8 +1168,10 @@ select:focus-visible {
   margin-bottom: 16px;
 }
 
+.credits-founders ul,
 .credits-hosts ul { list-style: none; }
 
+.credits-founders li,
 .credits-hosts li {
   padding: 12px 0;
   border-bottom: 1px solid var(--rule);
