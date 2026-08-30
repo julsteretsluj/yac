@@ -270,9 +270,22 @@ select:focus-visible {
 
 .hero {
   position: relative;
-  padding: clamp(48px, 8vw, 96px) 0 clamp(64px, 10vw, 120px);
+  padding: 0 0 clamp(64px, 10vw, 120px);
   border-bottom: 1px solid var(--rule);
   overflow: hidden;
+}
+
+.site-banner {
+  width: 100%;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+
+.site-banner img {
+  display: block;
+  width: 100%;
+  height: clamp(120px, 22vw, 260px);
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-orbit {
