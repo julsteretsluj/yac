@@ -22,12 +22,9 @@ if (header) {
   }, { passive: true });
 }
 
-// Upcoming conference editions (bi-monthly, third weekend)
+// Upcoming conference editions (bi-monthly)
 const upcomingConferences = [
   {
-    start: '2026-09-26',
-    end: '2026-09-27',
-    dates: '26—27 Sep 2026',
     theme: 'Human Rights',
     tagline: 'Youth stances on human rights, from the classroom to the global stage',
     status: 'open',
@@ -36,42 +33,30 @@ const upcomingConferences = [
     cta: { href: 'register.html', label: 'Register ↗' },
   },
   {
-    start: '2026-11-28',
-    end: '2026-11-29',
-    dates: '28—29 Nov 2026',
     theme: 'Climate Action',
     tagline: 'Youth-led solutions for a changing planet',
     status: 'soon',
-    statusLabel: 'Save the date',
+    statusLabel: 'Coming soon',
     accent: 'blue',
-    cta: { href: 'upcoming.html', label: 'Save the date →' },
+    cta: { href: 'upcoming.html', label: 'Coming soon →' },
   },
   {
-    start: '2027-01',
-    end: '2027-01',
-    dates: 'January 2027',
     theme: 'Education & Opportunity',
     tagline: 'Rethinking access, equity, and the future of learning',
     status: 'planned',
     statusLabel: 'Theme confirmed',
     accent: 'purple',
-    cta: { href: 'upcoming.html', label: 'Save the date →' },
+    cta: { href: 'upcoming.html', label: 'Coming soon →' },
   },
   {
-    start: '2027-03-20',
-    end: '2027-03-21',
-    dates: '20—21 Mar 2027',
     theme: 'Democracy & Civic Life',
     tagline: 'Young people shaping institutions and public discourse',
     status: 'planned',
     statusLabel: 'Theme confirmed',
     accent: 'yellow',
-    cta: { href: 'upcoming.html', label: 'Save the date →' },
+    cta: { href: 'upcoming.html', label: 'Coming soon →' },
   },
   {
-    start: '2027-05-15',
-    end: '2027-05-16',
-    dates: '15—16 May 2027',
     theme: 'Global Health & Wellbeing',
     tagline: 'SDGs, mental health, and what it means to thrive',
     status: 'tba',
@@ -80,9 +65,6 @@ const upcomingConferences = [
     cta: { href: 'upcoming.html', label: 'Details forthcoming' },
   },
   {
-    start: '2027-07-17',
-    end: '2027-07-18',
-    dates: '17—18 Jul 2027',
     theme: 'Digital Futures',
     tagline: 'Technology, media, and ethics in a connected world',
     status: 'tba',
@@ -99,7 +81,6 @@ function renderEditionCards() {
   container.innerHTML = upcomingConferences.map((edition) => `
     <article class="edition-card edition-card--${edition.accent}${edition.status === 'open' ? ' edition-card--featured' : ''}" role="listitem">
       <div class="edition-card-top">
-        <time datetime="${edition.start}/${edition.end}">${edition.dates}</time>
         <span class="edition-status edition-status--${edition.status}">${edition.statusLabel}</span>
       </div>
       <h3 class="edition-theme">${edition.theme}</h3>
@@ -112,71 +93,14 @@ function renderEditionCards() {
 
 renderEditionCards();
 
-// Program — canonical schedule in GMT+7, converted to any UTC offset
+// Program — schedule TBA; timezone conversion kept for when sessions are published
 const REFERENCE_TZ_OFFSET = 420; // GMT+7
 
-const sessionBlocks = [
-  {
-    conferenceDay: 1,
-    title: 'Day 1 · Session 1',
-    detail: 'Sep 26 · Asia, Middle East & Africa',
-    hosts: 'Jules Kitto-Astrop & Dominique Chloe Gwyneth Djamal',
-    upcoming: true,
-    start: { date: 26, hour: 14, minute: 0 },
-    end: { date: 26, hour: 21, minute: 0 },
-  },
-  {
-    conferenceDay: 1,
-    title: 'Day 1 · Session 2',
-    detail: 'Sep 26–27 · Americas & West Africa',
-    hosts: 'Asomugha Zingisa',
-    start: { date: 26, hour: 21, minute: 0 },
-    end: { date: 27, hour: 2, minute: 0 },
-  },
-  {
-    conferenceDay: 2,
-    title: 'Day 2 · Session 1',
-    detail: 'Sep 27–28 · Americas & West Africa',
-    hosts: 'Jules Kitto-Astrop',
-    start: { date: 27, hour: 21, minute: 0 },
-    end: { date: 28, hour: 2, minute: 0 },
-  },
-  {
-    conferenceDay: 2,
-    title: 'Day 2 · Session 2',
-    detail: 'Sep 28 · Asia & Pacific',
-    hosts: 'Dominique Chloe Gwyneth Djamal',
-    start: { date: 28, hour: 2, minute: 0 },
-    end: { date: 28, hour: 9, minute: 0 },
-  },
-];
+const sessionBlocks = [];
 
 const dayPrograms = {
-  1: [
-    ['0:00', 'Opening & welcome', 'Moderator introduction, icebreaker, objective setting'],
-    ['0:30', 'Speaker masterclass', 'Keynote + live Q&A'],
-    ['1:00', 'Q&A + breakout workshop', 'Activity under speaker oversight'],
-    ['1:30', 'Break', 'Rest & leisure'],
-    ['2:00', 'Breakout workshop', 'Activity under speaker oversight'],
-    ['2:30', 'Speaker masterclass', 'Keynote + live Q&A'],
-    ['3:00', 'Speaker masterclass', 'Keynote + live Q&A'],
-    ['3:30', 'Break', 'Rest & leisure'],
-    ['4:00', 'Speaker masterclass', 'Keynote + live Q&A'],
-    ['4:30', 'Presentations', 'Selected solutions shown to full conference'],
-    ['5:15', 'Awards', 'Outstanding contributor recognition'],
-    ['5:45', 'Closing', 'Wrap-up, feedback, certificate preview'],
-  ],
-  2: [
-    ['0:00', 'Opening & synthesis', 'Day 1 recap, setting the stage'],
-    ['0:30', 'Speaker masterclass', 'Keynote + live Q&A'],
-    ['1:00', 'Breakout workshop', 'Activity under speaker oversight'],
-    ['1:30', 'Break', 'Rest & leisure'],
-    ['2:00', 'Breakout workshop', 'Activity under speaker oversight'],
-    ['2:30', 'Break & icebreakers', 'Rest or committee games'],
-    ['3:30', 'Open panel debate', 'Floor discussion on adopted resolutions'],
-    ['5:15', 'Closing keynote', 'Final remarks'],
-    ['5:45', 'Awards & farewell', 'Certificates, feedback, closing'],
-  ],
+  1: [],
+  2: [],
 };
 
 const timezones = [
@@ -344,6 +268,19 @@ function renderSchedule() {
   const sessions = getComputedSessions(currentTzOffset);
   if (!container) return;
 
+  if (!sessions.length) {
+    if (title) title.textContent = 'Session times';
+    container.innerHTML = `
+      <li role="listitem" class="session-item session-item--empty">
+        <span class="session-item-body">
+          <span class="session-item-title">Schedule coming soon</span>
+          <span class="session-item-detail">Session blocks will appear here once published.</span>
+        </span>
+      </li>
+    `;
+    return;
+  }
+
   if (title) title.textContent = `Session times in ${formatOffsetLabel(currentTzOffset)}`;
 
   container.innerHTML = sessions.map((session, index) => `
@@ -375,24 +312,45 @@ function renderTimetable() {
   if (!tbody) return;
 
   const session = getSelectedSession();
+  const caption = document.querySelector('.timetable caption');
+  const timetableLabel = document.getElementById('timetable-label');
+
+  if (!session) {
+    syncDayTabs(currentDay);
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="3">Program segments will appear here once the schedule is published.</td>
+      </tr>
+    `;
+    const labelText = 'Schedule coming soon';
+    if (caption) caption.textContent = labelText;
+    if (timetableLabel) timetableLabel.textContent = labelText;
+    return;
+  }
+
   const sessionStart = session.time.split('–')[0].trim();
   const label = formatOffsetLabel(currentTzOffset);
   currentDay = session.conferenceDay;
   syncDayTabs(currentDay);
 
-  tbody.innerHTML = dayPrograms[currentDay].map(([offset, segment, desc]) => {
-    const clock = offsetToClock(sessionStart, offset);
-    return `
+  const segments = dayPrograms[currentDay] ?? [];
+  tbody.innerHTML = segments.length
+    ? segments.map(([offset, segment, desc]) => {
+      const clock = offsetToClock(sessionStart, offset);
+      return `
     <tr>
       <td><time datetime="${clock}">${clock}</time></td>
       <td>${segment}</td>
       <td>${desc}</td>
     </tr>
   `;
-  }).join('');
+    }).join('')
+    : `
+      <tr>
+        <td colspan="3">Program segments will appear here once the schedule is published.</td>
+      </tr>
+    `;
 
-  const caption = document.querySelector('.timetable caption');
-  const timetableLabel = document.getElementById('timetable-label');
   const labelText = `${session.title} · ${label} · starts ${sessionStart}`;
 
   if (caption) caption.textContent = labelText;
